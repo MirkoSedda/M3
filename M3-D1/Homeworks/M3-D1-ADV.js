@@ -19,18 +19,14 @@ console.log(mostCommonChar('Strive school is awesome!'))
     Return `true` if the words are anagram, return `false` if they aren't. */
 
 const anagram = (str1, str2) => {
-  const res1 = str1
-    .split('')
-    .sort((a, b) => a - b)
-    .join('')
-  console.log(res1)
-  res1
-  const res2 = str2
-    .split('')
-    .sort((a, b) => a - b)
-    .join('')
+  const res1 = str1.toLowerCase().split('').sort().join('')
+  const res2 = str2.toLowerCase().split('').sort().join('')
+  return res1 === res2 ? true : false
 }
 console.log(anagram('strive', 'strevi'))
+console.log(anagram('earth', 'heart'))
+console.log(anagram('peach', 'cheap'))
+console.log(anagram('sad', 'sadd'))
 
 const sort = arr => arr.sort((a, b) => b - a)
 console.log(sort([5, 1, 3, 2, 4]))
