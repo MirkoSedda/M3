@@ -130,7 +130,7 @@ console.log(angleFinder(666))
 /* 13. Create a function to find and return the index of the greatest element of a given array of integers that you passed as a parameter. */
 
 const indexFinder = arr => {
-  let largest = 0
+  let largest = arr[0]
   let index = 0
 
   for (let i = 0; i < arr.length; i++) {
@@ -150,7 +150,7 @@ console.log(indexFinder([0, 1, 2, 3, 4, 5]))
 /* 14. Create a function to find and return the largest **even** number from an array of integers that is passed a parameter. */
 
 const evenIndexFinder = arr => {
-  let largest = 0
+  let largest = arr[0]
   let index = 0
 
   for (let i = 0; i < arr.length; i++) {
@@ -175,18 +175,16 @@ const lol = (num1, num2) => (num1 > 0 && num2 < 0 ? true : false)
 console.log(lol(1, -1))
 console.log(lol(-1, 1))
 
-/* 16. Create a function to create and return a new string where the first 3 characters are in lower case and the others are in upper case. 
-    If the string's length is less than 3, convert the whole string into uppercase. Pass the original string as a parameter. */
+/* 16. Create a function to create and return a new string where the first 7 characters are in lower case and the others are in upper case. 
+    If the string's length is less than 7, convert the whole string into uppercase. Pass the original string as a parameter. */
 
 const stringMess = str => {
-  const substr1 = str.substr(0, 3).toLowerCase()
-  const substr2 = str.substr(3, str.length).toUpperCase()
-  const newStr = substr1 + substr2
-  newStr.length < 3 ? str.toUpperCase() : null
-  return newStr
+  const subStr =
+    str.substr(0, 7).toLowerCase() + str.substr(7, str.length).toUpperCase()
+  return str.length < 7 ? str.toUpperCase() : subStr
 }
 console.log(stringMess('Strive'))
-console.log(stringMess('Str'))
+console.log(stringMess('StriveSchool'))
 
 // CHECK EX 16 FOR STR.LENGTH < 3 CHARS
 
