@@ -149,6 +149,24 @@ console.log(indexFinder([0, 1, 2, 3, 4, 5]))
 
 /* 14. Create a function to find and return the largest **even** number from an array of integers that is passed a parameter. */
 
+const evenIndexFinder = arr => {
+  let largest = 0
+  let index = 0
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > largest) {
+      largest = arr[i]
+      index = i
+    }
+  }
+  return index
+}
+
+console.log(evenIndexFinder([0, 1, 2]))
+console.log(evenIndexFinder([0, 1, 2, 3]))
+console.log(evenIndexFinder([0, 1, 2, 3, 4]))
+console.log(evenIndexFinder([0, 1, 2, 3, 4, 5]))
+
 /* 15. Create a function to check from two given integers (passed as parameters) if one is positive and the other is negative. 
     Return `true` if that's the case, return `false` if it's not. */
 
