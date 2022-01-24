@@ -234,3 +234,17 @@ console.log(namesFizzBuzz(1))
 
 /* 19. Create a function that that takes a phrase as a parameter and returns its acronym.
 Ex. British Broadcasting Corporation returns `BBC` */
+
+const acronym = str => {
+  let arr = []
+  const split = str.split(' ')
+
+  for (let i = 0; i < split.length; i++) {
+    arr.push(split[i][0])
+  }
+  return arr.join('').toUpperCase()
+}
+
+console.log(acronym('Strive School Inc.'))
+console.log(acronym('British Broadcasting Corporation'))
+console.log(acronym('Sorry to fool u'))
