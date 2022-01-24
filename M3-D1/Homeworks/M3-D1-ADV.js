@@ -21,6 +21,8 @@ console.log(mostCommonChar('Strive school is awesome!'))
 const anagram = (str1, str2) => {
   const res1 = str1.toLowerCase().split('').sort().join('')
   const res2 = str2.toLowerCase().split('').sort().join('')
+  console.log(res1)
+  console.log(res2)
   return res1 === res2 ? true : false
 }
 console.log(anagram('strive', 'strevi'))
@@ -40,6 +42,62 @@ console.log(numbers)
 */
 
 /* 4. Given a string (as parameter), return `true` if the string is a palindrome or `false` if it is not. Include spaces and punctuation. */
+
+const palindrome = str => {
+  return str === str.split('').reverse().join('')
+}
+console.log(palindrome('level'))
+console.log(palindrome('civic'))
+console.log(palindrome('boob'))
+console.log(palindrome('mirko'))
+
+// const palindrome = str => {
+//   const result = Math.floor(str.length/2)
+//   let x = 0
+//     for (let i = 1; i < (str.length / 2); i++) {
+//         console.log(str.charAt(i));
+//         console.log(str.charAt(str.length - i))
+//         if (str.charAt(i) === str.charAt(str.length - i)) {
+
+//         }
+//     }
+// }
+// console.log(palindrome('level'))
+
+// const palindrome = str => {
+//   for (let i = 1; i < str.length + 1; i++) {
+//     console.log(str.charAt(str.length - i))
+//     if (str.charAt(i) === str.charAt(str.length - i)) {
+//       continue
+//     } else {
+//       return false
+//     }
+//   }
+// }
+
+// const palindrome = str => {
+//     for (let i = 0; i < str.length; i++) {
+//       let lastChar = str.charAt(str.length - i - 1)
+//     }
+
+// }
+// for (let i = 0; i < str.length; i++) {
+//     let lastChar = str.charAt(str.length - i - 1)
+
+// }
+// let i = 0
+// let lastChar = str.charAt(str.length - 1)
+// console.log(lastChar)
+
+// do {
+//   i = i + 1
+// } while (str.charAt(i) === str.charAt(str.length - i))
+// {
+//   return (whatIs = true)
+// }
+
+// console.log(result)
+// expected result: "12345"
 
 /* 5. Given an integer (as parameter), return an integer which digits are the same as the original number, but reversed.
     Ex: 189 ⇒ 981 */
@@ -68,6 +126,10 @@ console.log(reverse(547))
 
 /* 7. Create a function that, given a string as a parameter, returns a new string which is the original string, but reversed: 
 "hello" ⇒ "olleh" */
+
+const reverseStr = str => str.toLowerCase().split('').reverse().join('')
+
+console.log(reverseStr('cmonnnn'))
 
 /* 8. Create a function that takes an array and a "chuck size" as parameters. 
     Divide the array into subarrays with the "chunk size" as lenght: 
