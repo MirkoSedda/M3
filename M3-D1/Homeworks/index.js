@@ -109,6 +109,24 @@ console.log(longestString(['aaa', 'bb', 'c']))
     Pass the angle as a parameter.
 */
 
+const angleFinder = angle =>
+  angle >= 0 && angle < 90
+    ? 'acute'
+    : angle === 90
+    ? 'right'
+    : angle >= 90 && angle <= 180
+    ? 'obtuse'
+    : angle > 180 && angle <= 360
+    ? 'straight'
+    : angle > 361
+    ? 'wild card'
+    : null
+
+console.log(angleFinder(0))
+console.log(angleFinder(90))
+console.log(angleFinder(180))
+console.log(angleFinder(181))
+console.log(angleFinder(666))
 /* 13. Create a function to find and return the index of the greatest element of a given array of integers that you passed as a parameter. */
 
 /* 14. Create a function to find and return the largest **even** number from an array of integers that is passed a parameter. */
