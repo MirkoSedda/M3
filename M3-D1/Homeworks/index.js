@@ -201,6 +201,8 @@ console.log(sumInRange(79, 80))
 console.log(sumInRange(0))
 console.log(sumInRange(1, 2))
 
+//JS dark magic happening here lol
+
 /* 18. Create a function to convert a number (passed as a parameter) into a string, basing yourself on this example: 
     The number has 3 as a factor ⇒ return `Diego`
     The number has 5 as a factor ⇒ return `Riccardo`
