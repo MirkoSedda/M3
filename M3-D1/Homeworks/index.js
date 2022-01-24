@@ -14,7 +14,15 @@ console.log(fifty(48, 1))
 
 /* 3. Create a function to remove a character at a specified position from a given string: pass the position and the string as parameters, return the new string. */
 
+const removeChar = (str, pos) => str.substring(pos)
+
+console.log(removeChar('$Strive', 1))
+
 /* 4. Create a function to find and return the largest of three given integers. */
+
+const largest = (a, b, c) => Math.max(a, b, c)
+
+console.log(largest(1, 2, 3))
 
 /* 5. Create a function to check if two numbers are in the range 40-60 or 70-100. 
     Return `true` if they do, return `false` if one (or both) don't. */
