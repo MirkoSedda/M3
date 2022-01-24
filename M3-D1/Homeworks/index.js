@@ -62,6 +62,11 @@ console.log(cityFinder('York'))
 /* 8. Create a function to calculate and return the sum of all elements from an array with 3 elements. 
     Pass the array as a parameter. */
 
+const arrSum = arr => (arr.length === 3 ? arr.reduce((a, b) => a + b) : null)
+
+console.log(arrSum([1, 2, 3]))
+console.log(arrSum([1]))
+
 /* 9. Create a function to test if an array of lenght 2 contains 1 OR 3. 
     Return `true` is it does, `false` if it doesn't. */
 
