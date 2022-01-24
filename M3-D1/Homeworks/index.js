@@ -200,13 +200,37 @@ console.log(sumInRange(30, 50))
 console.log(sumInRange(0))
 console.log(sumInRange(1, 2))
 
-/* 18. Create a function to convert a number (passed as a parameter) into a string, basing yourself on this example: 
-    The number has 3 as a factor ⇒ return `Diego`
-    The number has 5 as a factor ⇒ return `Riccardo`
-    The number has 7 as a factor ⇒ return `Stefano`
-    If the number does not have 3,5, or 7, return the original number. 
-    ⚠️ The factor is an integer which evenly divides a number without leaving a remainder. One number can have more than one factor, in that case you should return both names. 
-Ex. 15 has both 3 and 5 has factors: the function will return `DiegoRiccardo` */
+/* 18. Create a function to convert a number (passed as a parameter) into a stringIf t 
+    If the number has 3 as a factor ⇒ return `Diego`
+    If the number has 5 as a factor ⇒ return `Riccardo`
+    If the number has 7 as a factor ⇒ return `Stefano`
+    If the number is not a modulo of the combo between 3, 5, and 7, return the original number. 
+    One number can have more than one factor, in that case you should return both names. */
+
+const namesFizzBuzz = num =>
+  num % 7 === 0 && num % 5 === 0 && num % 3 === 0
+    ? 'DiegoRiccardoStefano'
+    : num % 7 === 0 && num % 5 === 0
+    ? 'RiccardoStefano'
+    : num % 7 === 0 && num % 3 === 0
+    ? 'DiegoStefano'
+    : num % 5 === 0 && num % 3 === 0
+    ? 'DiegoRiccardo'
+    : num % 7 === 0
+    ? 'Stefano'
+    : num % 5 === 0
+    ? 'Riccardo'
+    : num % 3 === 0
+    ? 'Diego'
+    : num
+console.log(namesFizzBuzz(105))
+console.log(namesFizzBuzz(35))
+console.log(namesFizzBuzz(21))
+console.log(namesFizzBuzz(15))
+console.log(namesFizzBuzz(7))
+console.log(namesFizzBuzz(5))
+console.log(namesFizzBuzz(3))
+console.log(namesFizzBuzz(1))
 
 /* 19. Create a function that that takes a phrase as a parameter and returns its acronym.
 Ex. British Broadcasting Corporation returns `BBC` */
