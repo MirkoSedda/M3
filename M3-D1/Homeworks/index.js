@@ -194,12 +194,11 @@ console.log(stringMess('Str'))
     If the sum is in the 50-80 range, return `65`, otherwise, return `80`. */
 
 const sumInRange = (num1, num2) =>
-  num1 + num2 >= 50 || num1 + num2 <= 80 ? '65' : '80'
+  num1 + num2 >= 50 && num1 + num2 <= 80 ? '65' : '80'
 
 console.log(sumInRange(50, 51))
 console.log(sumInRange(79, 80))
 console.log(sumInRange(0))
-// check this case, its failing
 console.log(sumInRange(1, 2))
 
 /* 18. Create a function to convert a number (passed as a parameter) into a string, basing yourself on this example: 
