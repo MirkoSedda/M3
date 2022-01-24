@@ -129,6 +129,24 @@ console.log(angleFinder(181))
 console.log(angleFinder(666))
 /* 13. Create a function to find and return the index of the greatest element of a given array of integers that you passed as a parameter. */
 
+const indexFinder = arr => {
+  let largest = 0
+  let index = 0
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > largest) {
+      largest = arr[i]
+      index = i
+    }
+  }
+  return index
+}
+
+console.log(indexFinder([0, 1, 2]))
+console.log(indexFinder([0, 1, 2, 3]))
+console.log(indexFinder([0, 1, 2, 3, 4]))
+console.log(indexFinder([0, 1, 2, 3, 4, 5]))
+
 /* 14. Create a function to find and return the largest **even** number from an array of integers that is passed a parameter. */
 
 /* 15. Create a function to check from two given integers (passed as parameters) if one is positive and the other is negative. 
