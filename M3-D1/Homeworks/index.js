@@ -186,20 +186,16 @@ const stringMess = str => {
 console.log(stringMess('Strive'))
 console.log(stringMess('StriveSchool'))
 
-// CHECK EX 16 FOR STR.LENGTH < 3 CHARS
-
 /* 17. Create a function to calculate the sum of two integers (passed as parameters). 
     If the sum is in the 50-80 range, return `65`, otherwise, return `80`. */
 
 const sumInRange = (num1, num2) =>
-  num1 + num2 >= 50 && num1 + num2 <= 80 ? '65' : '80'
+  num1 + num2 >= 50 && num1 + num2 <= 80 ? 65 : 80
 
-console.log(sumInRange(50, 51))
-console.log(sumInRange(79, 80))
+console.log(sumInRange(50, 30))
+console.log(sumInRange(30, 50))
 console.log(sumInRange(0))
 console.log(sumInRange(1, 2))
-
-//JS dark magic happening here lol
 
 /* 18. Create a function to convert a number (passed as a parameter) into a string, basing yourself on this example: 
     The number has 3 as a factor ⇒ return `Diego`
