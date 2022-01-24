@@ -170,10 +170,13 @@ console.log(evenIndexFinder([0, 1, 2, 3, 4, 5, 6, 7, 8]))
 /* 15. Create a function to check from two given integers (passed as parameters) if one is positive and the other is negative. 
     Return `true` if that's the case, return `false` if it's not. */
 
-const lol = (num1, num2) => (num1 > 0 && num2 < 0 ? true : false)
+const lol = (num1, num2) =>
+  (num1 > 0 && num2 < 0) || (num1 < 0 && num2 > 0) ? true : false
 
 console.log(lol(1, -1))
 console.log(lol(-1, 1))
+console.log(lol(1, 1))
+console.log(lol(-1, -1))
 
 /* 16. Create a function to create and return a new string where the first 7 characters are in lower case and the others are in upper case. 
     If the string's length is less than 7, convert the whole string into uppercase. Pass the original string as a parameter. */
