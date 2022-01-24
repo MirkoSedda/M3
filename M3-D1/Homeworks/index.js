@@ -82,6 +82,15 @@ console.log(arrContains([0, 2]))
 /* 10. Create a function to test if an array of lenght 2 DOES NOT contain 1 or 3. 
     Return `true` if it doesn't, `false` if it does. */
 
+const arrDoesNotContains = arr => {
+  if (arr.length === 2) {
+    return arr.includes(1) || arr.includes(3) ? false : true
+  }
+}
+console.log(arrDoesNotContains([1, 0]))
+console.log(arrDoesNotContains([0, 3]))
+console.log(arrDoesNotContains([0, 2]))
+
 /* 11. Create a function to find the longest string from a given array of strings. 
     Pass the array as parameter and return the longest string. */
 
