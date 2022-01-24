@@ -70,6 +70,15 @@ console.log(arrSum([1]))
 /* 9. Create a function to test if an array of lenght 2 contains 1 OR 3. 
     Return `true` is it does, `false` if it doesn't. */
 
+const arrContains = arr => {
+  if (arr.length === 2) {
+    return arr.includes(1) || arr.includes(3) ? true : false
+  }
+}
+console.log(arrContains([1, 0]))
+console.log(arrContains([0, 3]))
+console.log(arrContains([0, 2]))
+
 /* 10. Create a function to test if an array of lenght 2 DOES NOT contain 1 or 3. 
     Return `true` if it doesn't, `false` if it does. */
 
