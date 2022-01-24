@@ -154,7 +154,7 @@ const evenIndexFinder = arr => {
   let index = 0
 
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > largest) {
+    if (arr[i] % 2 === 0 && arr[i] > largest) {
       largest = arr[i]
       index = i
     }
@@ -163,9 +163,9 @@ const evenIndexFinder = arr => {
 }
 
 console.log(evenIndexFinder([0, 1, 2]))
-console.log(evenIndexFinder([0, 1, 2, 3]))
-console.log(evenIndexFinder([0, 1, 2, 3, 4]))
 console.log(evenIndexFinder([0, 1, 2, 3, 4, 5]))
+console.log(evenIndexFinder([0, 1, 2, 3, 4, 5, 6]))
+console.log(evenIndexFinder([0, 1, 2, 3, 4, 5, 6, 7, 8]))
 
 /* 15. Create a function to check from two given integers (passed as parameters) if one is positive and the other is negative. 
     Return `true` if that's the case, return `false` if it's not. */
