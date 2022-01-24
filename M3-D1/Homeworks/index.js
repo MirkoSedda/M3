@@ -27,6 +27,20 @@ console.log(largest(1, 2, 3))
 /* 5. Create a function to check if two numbers are in the range 40-60 or 70-100. 
     Return `true` if they do, return `false` if one (or both) don't. */
 
+const inRange = (a, b) =>
+  (a >= 40 && a <= 60) ||
+  (b >= 40 && b <= 60) ||
+  (a >= 70 && a <= 100) ||
+  (b >= 70 && b <= 100)
+    ? true
+    : false
+
+console.log(inRange(40, 61))
+console.log(inRange(41, 60))
+console.log(inRange(70, 101))
+console.log(inRange(69, 100))
+console.log(inRange(69, 101))
+
 /* 6. Create a function to create a new string composed of a specified number of copies of a given string. 
     Pass the string and the number of copies as parameters. */
 
