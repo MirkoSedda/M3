@@ -51,6 +51,14 @@ console.log(strMultiplier('Strive', 3))
 /* 7. Create a function to display the city name if the string begins with "Los" or "New". 
     Pass the city name as a parameter. Return `false` if they start with a different string. */
 
+const cityFinder = city =>
+  city.startsWith('Los') || city.startsWith('New') ? true : false
+
+console.log(cityFinder('LosAngeles'))
+console.log(cityFinder('NewYork'))
+console.log(cityFinder('YorkNew'))
+console.log(cityFinder('York'))
+
 /* 8. Create a function to calculate and return the sum of all elements from an array with 3 elements. 
     Pass the array as a parameter. */
 
