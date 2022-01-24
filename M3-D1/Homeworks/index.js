@@ -87,9 +87,10 @@ const arrDoesNotContains = arr => {
     return arr.includes(1) || arr.includes(3) ? false : true
   }
 }
-console.log(arrDoesNotContains([1, 0]))
-console.log(arrDoesNotContains([0, 3]))
 console.log(arrDoesNotContains([0, 2]))
+console.log(arrDoesNotContains([2, 0]))
+console.log(arrDoesNotContains([0, 1]))
+console.log(arrDoesNotContains([3, 0]))
 
 /* 11. Create a function to find the longest string from a given array of strings. 
     Pass the array as parameter and return the longest string. */
