@@ -175,8 +175,18 @@ const lol = (num1, num2) => (num1 > 0 && num2 < 0 ? true : false)
 console.log(lol(1, -1))
 console.log(lol(-1, 1))
 
-/* 16. Create a function to create and return a new string where the first 3 characters and in lower case and the others are in upper case. 
+/* 16. Create a function to create and return a new string where the first 3 characters are in lower case and the others are in upper case. 
     If the string's length is less than 3, convert the whole string into uppercase. Pass the original string as a parameter. */
+
+const stringMess = str => {
+  const substr1 = str.substr(0, 3).toLowerCase()
+  const substr2 = str.substr(3, str.length).toUpperCase()
+  const newStr = substr1 + substr2
+  newStr.length < 3 ? str.toUpperCase() : null
+  return newStr
+}
+console.log(stringMess('Strive'))
+console.log(stringMess('Str'))
 
 /* 17. Create a function to calculate the sum of two integers (passed as parameters). 
     If the sum is in the 50-80 range, return `65`, otherwise, return `80`. */
