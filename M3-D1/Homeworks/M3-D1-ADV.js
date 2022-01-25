@@ -29,12 +29,11 @@ console.log(anagram('earth', 'heart'))
 console.log(anagram('peach', 'cheap'))
 console.log(anagram('sad', 'sadd'))
 
-const sort = arr => arr.sort((a, b) => a - b)
-console.log(sort([5, 1, 3, 2, 4]))
+const sortAsc = arr => arr.sort((a, b) => a - b)
+console.log(sortAsc([5, 1, 3, 2, 4]))
 
-let numbers = [4, 2, 5, 1, 3]
-numbers.sort((a, b) => b - a)
-console.log(numbers)
+const sortDesc = arr => arr.sort((a, b) => b - a)
+console.log(sortDesc([5, 1, 3, 2, 4]))
 
 /* 3. Given a word and a list of possible anagrams (both passed as parameters), return the correct list of anagrams: 
     Ex. "listen" is the word, ["enlist", "google", "inlets"] are the possibilities: the output should be ["enlist", "inlets"]
@@ -42,9 +41,8 @@ console.log(numbers)
 
 /* 4. Given a string (as parameter), return `true` if the string is a palindrome or `false` if it is not. Include spaces and punctuation. */
 
-const palindrome = str => {
-  return str === str.split('').reverse().join('')
-}
+const palindrome = str => str === str.split('').reverse().join('')
+
 console.log(palindrome('level'))
 console.log(palindrome('civic'))
 console.log(palindrome('boob'))
