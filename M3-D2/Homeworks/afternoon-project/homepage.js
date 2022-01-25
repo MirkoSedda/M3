@@ -26,23 +26,23 @@ window.onload = () => {
 
       showTitles = () => {
         const innerModal = document.querySelector('.modal-body')
+        console.log(innerModal)
         const song = data.data
         for (let i = 0; i < song.length; i++) {
-          innerModal.innerHTML += `<span>${song[i].title_short}</span>`
+          innerModal.innerHTML += `<span> ${song[i].title_short} <br></span>`
         }
       }
       showTitles()
 
       removeDoubles = () => {
         const song = data.data
-        let i
         let filteredTitles = []
         for (let i = 0; i < song.length; i++) {
           if (!filteredTitles.includes(song[i].title_short)) {
             filteredTitles.push(song[i].title_short)
           }
         }
-        console.log(filteredTitles)
+        console.log(filteredTitles.length)
       }
       removeDoubles()
     })

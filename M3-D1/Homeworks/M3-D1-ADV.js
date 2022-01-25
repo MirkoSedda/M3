@@ -41,13 +41,22 @@ console.log(sortDesc([5, 1, 3, 2, 4]))
 
 /* 4. Given a string (as parameter), return `true` if the string is a palindrome or `false` if it is not. Include spaces and punctuation. */
 
-const palindrome = str => str === str.split('').reverse().join('')
+//const palindrome = str => str === str.split('').reverse().join('')
 
+const palindrome = str => {
+  const temp = []
+  const arr = str.split('')
+
+  for (let i = arr.length; i >= 0; i--) {
+    temp.push(arr[i])
+  }
+
+  return temp.join('') === arr.join('')
+}
 console.log(palindrome('level'))
 console.log(palindrome('civic'))
 console.log(palindrome('boob'))
 console.log(palindrome('mirko'))
-
 // const palindrome = str => {
 //   const result = Math.floor(str.length/2)
 //     for (let i = 1; i < (str.length / 2); i++) {
