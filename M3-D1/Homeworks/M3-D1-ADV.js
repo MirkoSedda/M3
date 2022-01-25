@@ -18,23 +18,22 @@ console.log(mostCommonChar('Strive school is awesome!'))
     Do not consider spaces or punctuation, make the whole word lower case. 
     Return `true` if the words are anagram, return `false` if they aren't. */
 
-const anagram = (str1, str2) => {
-  const res1 = str1.toLowerCase().split('').sort().join('')
-  const res2 = str2.toLowerCase().split('').sort().join('')
-  console.log(res1)
-  console.log(res2)
-  return res1 === res2 ? true : false
-}
+const anagram = (str1, str2) =>
+  str1.toLowerCase().split('').sort().join('') ===
+  str2.toLowerCase().split('').sort().join('')
+    ? true
+    : false
+
 console.log(anagram('strive', 'strevi'))
 console.log(anagram('earth', 'heart'))
 console.log(anagram('peach', 'cheap'))
 console.log(anagram('sad', 'sadd'))
 
-const sort = arr => arr.sort((a, b) => b - a)
+const sort = arr => arr.sort((a, b) => a - b)
 console.log(sort([5, 1, 3, 2, 4]))
 
 let numbers = [4, 2, 5, 1, 3]
-numbers.sort((a, b) => a - b)
+numbers.sort((a, b) => b - a)
 console.log(numbers)
 
 /* 3. Given a word and a list of possible anagrams (both passed as parameters), return the correct list of anagrams: 
@@ -53,7 +52,6 @@ console.log(palindrome('mirko'))
 
 // const palindrome = str => {
 //   const result = Math.floor(str.length/2)
-//   let x = 0
 //     for (let i = 1; i < (str.length / 2); i++) {
 //         console.log(str.charAt(i));
 //         console.log(str.charAt(str.length - i))
@@ -74,30 +72,6 @@ console.log(palindrome('mirko'))
 //     }
 //   }
 // }
-
-// const palindrome = str => {
-//     for (let i = 0; i < str.length; i++) {
-//       let lastChar = str.charAt(str.length - i - 1)
-//     }
-
-// }
-// for (let i = 0; i < str.length; i++) {
-//     let lastChar = str.charAt(str.length - i - 1)
-
-// }
-// let i = 0
-// let lastChar = str.charAt(str.length - 1)
-// console.log(lastChar)
-
-// do {
-//   i = i + 1
-// } while (str.charAt(i) === str.charAt(str.length - i))
-// {
-//   return (whatIs = true)
-// }
-
-// console.log(result)
-// expected result: "12345"
 
 /* 5. Given an integer (as parameter), return an integer which digits are the same as the original number, but reversed.
     Ex: 189 ⇒ 981 */
