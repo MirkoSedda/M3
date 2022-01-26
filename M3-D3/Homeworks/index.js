@@ -11,7 +11,7 @@ const fetchPhotos = query => {
       loadImagesToCarousel(data)
     })
     .catch(error => {
-      alert(error)
+      showAlert(`Sorry, something went wrong: ${error}`)
     })
 }
 
@@ -61,11 +61,10 @@ const searchImages = function () {
   return document.getElementById('input-search').value.toLowerCase()
 }
 
-const showAlert = function (message) {
+const showAlert = message => {
   let alert = document.getElementById('alert-message')
   alert.classList.remove('d-none')
   alert.innerText = message
-
   setTimeout(() => alert.classList.add('d-none'), 3000)
 }
 
@@ -73,7 +72,6 @@ const loadImagesToCarousel = function (data) {
   let imagesInCarousel = document.querySelectorAll(
     '.carousel-inner > div > img'
   )
-  console.log(imagesInCarousel)
   for (i = 0; i < imagesInCarousel.length; i++) {
     imagesInCarousel[i].src = data.photos[i].src.large
     imagesInCarousel[i].classList.add('card-img')
