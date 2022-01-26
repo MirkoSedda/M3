@@ -13,12 +13,41 @@ const fetchPhotos = query => {
       }
       const cards = document.querySelectorAll('.card')
       for (let i = 0; i < cards.length; i++) {
-        let newImg = document.createElement('img')
-        newImg.src = data.photos[i].src.small
-        newImg.classList.add('img-fluid')
-        newImg.style.height = '250px'
-        cards[i].prepend(newImg)
+        cards[i].innerHTML = `
+        <div class="card mb-4 shadow-sm">
+              <img src="${data.photos[i].src.small}" class="img-fluid card-img" alt="...">
+                <div class="card-body">
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <div class="btn-group">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        View
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+        `
       }
     })
 }
-fetchPhotos('cat')
+const loadImages = document.querySelector('.btn-primary')
+loadImages.addEventListener('click', () => fetchPhotos('cat'))
+const loadMoreImages = document.querySelector('.btn-secondary')
+loadMoreImages.addEventListener('click', () => fetchPhotos('girl'))

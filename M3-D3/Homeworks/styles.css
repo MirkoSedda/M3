@@ -46,3 +46,10 @@ footer p {
     font-size: 3.5rem;
   }
 }
+
+.card-img {
+  height: 250px;
+  width: 100%;
+  background-position: center;
+  object-fit: cover;
+}
