@@ -9,11 +9,15 @@ const fetchPhotos = query => {
       console.log(data)
       replaceImages(data)
       loadImagesToCarousel(data)
+      consoleLogUrls(data)
+      console.log(data.photos)
     })
     .catch(error => {
       showAlert(`Sorry, something went wrong: ${error}`)
     })
 }
+
+const consoleLogUrls = data => data.photos.map(obj => console.log(obj.url))
 
 const replaceImages = function (data) {
   const cols = document.querySelectorAll('.col-md-4')

@@ -82,5 +82,5 @@ footer p {
 }
 
 .index {
-  z-index: 100000000 !important;
+  z-index: 1000 !important;
 }
