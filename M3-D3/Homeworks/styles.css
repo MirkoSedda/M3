@@ -53,3 +53,7 @@ footer p {
   background-position: center;
   object-fit: cover;
 }
+
+.hidden {
+  opacity: 0;
+}

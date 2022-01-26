@@ -51,3 +51,5 @@ const loadImages = document.querySelector('.btn-primary')
 loadImages.addEventListener('click', () => fetchPhotos('cat'))
 const loadMoreImages = document.querySelector('.btn-secondary')
 loadMoreImages.addEventListener('click', () => fetchPhotos('girl'))
+
+const hideCard = event => event.target.closest('.card').remove()
