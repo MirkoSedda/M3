@@ -9,8 +9,9 @@ const fetchPhotos = query => {
       console.log(data)
       replaceImages(data)
       loadImagesToCarousel(data)
-      consoleLogUrls(data)
-      console.log(data.photos)
+      //consoleLogUrls(data)
+      filteredAuthors(data)
+      console.log(filteredAuthors(data))
     })
     .catch(error => {
       showAlert(`Sorry, something went wrong: ${error}`)
@@ -18,7 +19,10 @@ const fetchPhotos = query => {
 }
 
 const consoleLogUrls = data => data.photos.map(obj => console.log(obj.url))
+const filteredAuthors = data =>
+  data.photos.filter(obj => obj.photographer === 'Helena Lopes')
 
+//Use the .filter() method to modify the result of the API call. Keep only the images from a specific author of your choice.
 const replaceImages = function (data) {
   const cols = document.querySelectorAll('.col-md-4')
 
