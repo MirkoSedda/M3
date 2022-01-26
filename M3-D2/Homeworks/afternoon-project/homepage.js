@@ -2,7 +2,7 @@ window.onload = () => {
   fetch('https://striveschool-api.herokuapp.com/api/deezer/search?q=eminem', {})
     .then(res => res.json())
     .then(data => {
-      const songs = () => {
+      const songs = artist => {
         const song = data.data
         const eminemContainer = document.querySelector('.eminem-container')
         for (let i = 0; i < 9; i++) {
