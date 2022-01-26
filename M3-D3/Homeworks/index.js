@@ -20,7 +20,7 @@ const replaceImages = function (data) {
 
   for (let i = 0; i < cols.length; i++) {
     cols[i].innerHTML = `<div class="card mb-4 shadow-sm">
-                <img src="${data.photos[i].src.small}" class="" height="200"  alt="...">
+                <img src="${data.photos[i].src.large}" class="img-cardd" height="200"  alt="...">
                  
                 <div class="card-body">
                   <p class="card-text">
@@ -31,10 +31,13 @@ const replaceImages = function (data) {
                   >
                     <div class="btn-group">
                       <button
+                        id="myBtn"
                         type="button"
                         class="btn btn-sm btn-outline-secondary"
+                        onclick = 'modalFunc(event)'
                       >
                         View
+                        
                       </button>
                       <button
                         type="button"
@@ -56,7 +59,7 @@ const replaceImages = function (data) {
 
 const removeMe = event => event.target.closest('.card').remove()
 
-const searchImages = function () {
+const searchImages = () => {
   console.log(document.getElementById('input-search').value.toLowerCase())
   return document.getElementById('input-search').value.toLowerCase()
 }
@@ -68,7 +71,7 @@ const showAlert = message => {
   setTimeout(() => alert.classList.add('d-none'), 3000)
 }
 
-const loadImagesToCarousel = function (data) {
+const loadImagesToCarousel = data => {
   let imagesInCarousel = document.querySelectorAll(
     '.carousel-inner > div > img'
   )
@@ -87,3 +90,61 @@ const searchButton = document.getElementById('button-search')
 buttonPrimary.addEventListener('click', () => fetchPhotos('cat'))
 buttonSecondary.addEventListener('click', () => fetchPhotos('dog'))
 searchButton.addEventListener('click', () => fetchPhotos(searchImages()))
+
+const modal = document.getElementById('myModal')
+const btn = document.getElementById('myBtn')
+
+const modalFunc = data => {
+  const cardEvent =
+    data.target.parentNode.parentNode.parentNode.parentNode.children[0]
+
+  const imgSrc = cardEvent.getAttribute('src')
+  console.log(imgSrc)
+
+  modal.innerHTML = `
+  
+    <div class="modal-content index">
+      <img src="${imgSrc}" />
+    </div>
+    
+   `
+
+  modal.style.display = 'block'
+}
+
+window.onclick = event => {
+  if (event.target == modal) {
+    modal.style.display = 'none'
+  }
+}
+
+// <!-- Modal -->
+// <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+// <div class="modal-dialog">
+// <div class="modal-content">
+// <div class="modal-header">
+// <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+// <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+// </div>
+// <div class="modal-body">
+// <img src="${imgSrc}" />
+// </div>
+// <div class="modal-footer">
+// <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+// <button type="button" class="btn btn-primary">Save changes</button>
+// </div>
+// </div>
+// </div>
+// </div>
+
+{
+  /* <button
+  type="button"
+  class="btn btn-sm btn-outline-secondary"
+  onclick="modalFunc(event)"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  View
+</button> */
+}
