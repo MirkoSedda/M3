@@ -7,20 +7,24 @@ const fetchPhotos = query => {
     .then(res => res.json())
     .then(data => {
       console.log(data)
-      const imgs = document.querySelectorAll('svg')
-      for (let i = 1; i < imgs.length; i++) {
-        imgs[i].classList.add('d-none')
-      }
-      const cards = document.querySelectorAll('.card')
-      for (let i = 0; i < cards.length; i++) {
-        cards[i].innerHTML = `
-        <div class="card mb-4 shadow-sm">
-              <img src="${data.photos[i].src.small}" class="img-fluid card-img" alt="...">
+      replaceImages(data)
+      loadImagesToCarousel(data)
+    })
+    .catch(error => {
+      alert(error)
+    })
+}
+
+const replaceImages = function (data) {
+  const cols = document.querySelectorAll('.col-md-4')
+
+  for (let i = 0; i < cols.length; i++) {
+    cols[i].innerHTML = `<div class="card mb-4 shadow-sm">
+                <img src="${data.photos[i].src.small}" class="" height="200"  alt="...">
+                 
                 <div class="card-body">
                   <p class="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
+                    ${data.photos[i].alt}
                   </p>
                   <div
                     class="d-flex justify-content-between align-items-center"
@@ -35,21 +39,53 @@ const fetchPhotos = query => {
                       <button
                         type="button"
                         class="btn btn-sm btn-outline-secondary"
+                        onclick="removeMe(event)"
                       >
-                        Edit
+                        Hide
                       </button>
                     </div>
-                    <small class="text-muted">9 mins</small>
+                    <small class="text-muted">ID: ${data.photos[i].id}</small>
                   </div>
                 </div>
               </div>
-        `
-      }
-    })
-}
-const loadImages = document.querySelector('.btn-primary')
-loadImages.addEventListener('click', () => fetchPhotos('cat'))
-const loadMoreImages = document.querySelector('.btn-secondary')
-loadMoreImages.addEventListener('click', () => fetchPhotos('girl'))
+    `
+  }
 
-const hideCard = event => event.target.closest('.card').remove()
+  showAlert(cols.length + ' cards loaded')
+}
+
+const removeMe = event => event.target.closest('.card').remove()
+
+const searchImages = function () {
+  console.log(document.getElementById('input-search').value.toLowerCase())
+  return document.getElementById('input-search').value.toLowerCase()
+}
+
+const showAlert = function (message) {
+  let alert = document.getElementById('alert-message')
+  alert.classList.remove('d-none')
+  alert.innerText = message
+
+  setTimeout(() => alert.classList.add('d-none'), 3000)
+}
+
+const loadImagesToCarousel = function (data) {
+  let imagesInCarousel = document.querySelectorAll(
+    '.carousel-inner > div > img'
+  )
+  console.log(imagesInCarousel)
+  for (i = 0; i < imagesInCarousel.length; i++) {
+    imagesInCarousel[i].src = data.photos[i].src.large
+    imagesInCarousel[i].classList.add('card-img')
+    imagesInCarousel[i].classList.add('img-fluid')
+    imagesInCarousel[i].style.height = '350px'
+  }
+}
+
+const buttonPrimary = document.querySelector('.btn-primary')
+const buttonSecondary = document.querySelector('.btn-secondary')
+const searchButton = document.getElementById('button-search')
+
+buttonPrimary.addEventListener('click', () => fetchPhotos('cat'))
+buttonSecondary.addEventListener('click', () => fetchPhotos('dog'))
+searchButton.addEventListener('click', () => fetchPhotos(searchImages()))
