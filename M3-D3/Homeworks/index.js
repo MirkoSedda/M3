@@ -1,4 +1,4 @@
-const API_KEY = ''
+const API_KEY = '563492ad6f91700001000001363eaa0a99bb4e3ba880c0b812a5c8e6'
 
 const fetchPhotos = query => {
   fetch(`https://api.pexels.com/v1/search?query=${query}`, {
@@ -14,8 +14,9 @@ const fetchPhotos = query => {
       const cards = document.querySelectorAll('.card')
       for (let i = 0; i < cards.length; i++) {
         let newImg = document.createElement('img')
-        newImg.src = data.photos[i].url
-        newImg.classList.add('card-img-top')
+        newImg.src = data.photos[i].src.small
+        newImg.classList.add('img-fluid')
+        newImg.style.height = '250px'
         cards[i].prepend(newImg)
       }
     })
