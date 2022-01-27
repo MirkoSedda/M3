@@ -9,9 +9,7 @@ const fetchPhotos = query => {
       console.log(data)
       replaceImages(data)
       loadImagesToCarousel(data)
-      //consoleLogUrls(data)
       filteredAuthors(data)
-      console.log(filteredAuthors(data))
     })
     .catch(error => {
       showAlert(`Sorry, something went wrong: ${error}`)
@@ -22,7 +20,6 @@ const consoleLogUrls = data => data.photos.map(obj => console.log(obj.url))
 const filteredAuthors = data =>
   data.photos.filter(obj => obj.photographer === 'Helena Lopes')
 
-//Use the .filter() method to modify the result of the API call. Keep only the images from a specific author of your choice.
 const replaceImages = function (data) {
   const cols = document.querySelectorAll('.col-md-4')
 
@@ -124,35 +121,4 @@ window.onclick = event => {
   if (event.target == modal) {
     modal.style.display = 'none'
   }
-}
-
-// <!-- Modal -->
-// <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-// <div class="modal-dialog">
-// <div class="modal-content">
-// <div class="modal-header">
-// <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-// <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-// </div>
-// <div class="modal-body">
-// <img src="${imgSrc}" />
-// </div>
-// <div class="modal-footer">
-// <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-// <button type="button" class="btn btn-primary">Save changes</button>
-// </div>
-// </div>
-// </div>
-// </div>
-
-{
-  /* <button
-  type="button"
-  class="btn btn-sm btn-outline-secondary"
-  onclick="modalFunc(event)"
-  data-bs-toggle="modal"
-  data-bs-target="#exampleModal"
->
-  View
-</button> */
 }
