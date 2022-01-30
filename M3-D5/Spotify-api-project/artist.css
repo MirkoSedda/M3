@@ -1,5 +1,5 @@
 * {
-  font-family: "Heebo", sans-serif;
+  font-family: 'Heebo', sans-serif;
   color: white;
   margin: 0;
   padding: 0;
@@ -10,7 +10,7 @@ h1 {
 }
 
 .artist-name-container {
-  background-image: url("assets/Queen__Adam_Lambert_-_Live_Around_the_World.jpg");
+  background-image: url('assets/Queen__Adam_Lambert_-_Live_Around_the_World.jpg');
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -72,14 +72,6 @@ h1 {
 .song img {
   width: 35px;
 }
-.seeMore {
-  font-size: 14px;
-  font-weight: 700;
-}
-.seeMore:hover {
-  color: white !important;
-  cursor: pointer;
-}
 
 .artist-pick {
   margin-left: 75px !important;
@@ -126,10 +118,6 @@ h1 {
 
 /* -------- */
 
-.hiddenSong {
-  display: none;
-}
-
 /* navbar */
 .navbar {
   background-color: black !important;
@@ -175,7 +163,7 @@ h1 {
 /* mirko sidebar code */
 
 .m-sidebar-height {
-  min-height: 90vh;
+  height: 100vh;
   background-color: black !important;
   position: sticky;
   top: 0;
@@ -219,7 +207,7 @@ h1 {
 .m-music-player-section-height {
   height: 10vh;
   background-color: black;
-  position: sticky;
+  position: fixed;
   bottom: 0;
 }
 .m-bi-heart,
