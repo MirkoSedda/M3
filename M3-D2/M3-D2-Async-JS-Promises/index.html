@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const answer = function () {
+        alert('📞 Hello? ')
+      }
+
+      const angryAnswer = function () {
+        alert('📞 WHATT??? ')
+      }
+
+      const suspiciousAnswer = function () {
+        alert("📞 Who's there? ")
+      }
+
+      // HARDCODED FUNCTION (will always be the same)
+
+      // const callFriend = function () {
+      //     const randTime = Math.floor(Math.random() * 3000)
+
+      // setTimeout(function () {
+      //     answer()
+      // }, randTime)
+
+      //     setTimeout(answer, randTime)
+
+      //     console.log("Phone is ringing... ☎")
+      // }
+
+      // USING CALLBACK TO CREATE A DYNAMIC OUTPUT (this makes callFriend more flexible and reusable)
+
+      const callFriend = function (callback) {
+        // callback is just a placeholder name for the eventual function that will be provided to handle the output
+        const randTime = Math.floor(Math.random() * 3000)
+
+        // setTimeout(function () {
+        //     callback()
+        // }, randTime)
+
+        setTimeout(callback, randTime)
+
+        console.log('Phone is ringing... ☎')
+      }
+
+      callFriend(answer) // one time the output will be normal
+      callFriend(angryAnswer) // one time it will be angry
+      callFriend(suspiciousAnswer) // one time it will be suspicious
+
+      // you can decide at the moment of calling callFriend how you are going to handle the outcome
+      // by providing a different piece of code in the form of a function that gets called internally inside callFriend, at the right time, automatically.
+
+      function greet(name) {
+        console.log('Hello ' + name)
+      }
+
+      const getRemoteData = function (url, callback) {
+        // HANDLE THE HTTP REQUEST WITH "url"
+        // ...
+        // ...
+        // ...
+        // ...
+        // ...
+
+        //let data = result of HTTP Req
+
+        if (!err) {
+          callback(null, data)
+        } else {
+          callback(err)
+        }
+      }
+
+      getRemoteData('https://whatever.com/users/123971238712', function (user) {
+        getRemoteData(
+          'https://whatever.com/posts/' + user.name,
+          function (blogPosts) {
+            getRemoteData(
+              'https://whatever.com/comments/' + blogPosts[0].id,
+              function (comments) {
+                // DOM MANIPULATION
+                // attaching comments in the page....
+                console.log(comments)
+              }
+            )
+          }
+        )
+      })
+
+      // ARROW FUNCTIONS
+      function sayHi(user) {
+        console.log('HI')
+      }
+
+      // const sayHi = function() {
+      //     return "HI";
+      // }
+
+      // const sayHi = () => {
+      //     console.log(smth)
+      //     return "HI"
+      // }
+
+      // const sayHi = arg1 => "HI";
+
+      const sayHi = (arg1, arg2) => 'HI'
+
+      console.log(sayHi())
+
+      getRemoteData('https://whatever.com/users/123971238712')
+        .then(function (user) {
+          return getRemoteData('https://whatever.com/posts/' + user.name)
+        })
+        .then(function (blogPosts) {
+          return getRemoteData(
+            'https://whatever.com/comments/' + blogPosts[0].id
+          )
+        })
+        .then(function (comments) {
+          // DOM MANIPULATION
+          // attaching comments in the page....
+
+          div.innerHTML = comments[0]
+          console.log(comments)
+        })
+
+      getRemoteData('https://whatever.com/users/123971238712')
+        .then(user => getRemoteData('https://whatever.com/posts/' + user.name))
+        .then(blogPosts =>
+          getRemoteData('https://whatever.com/comments/' + blogPosts[0].id)
+        )
+        .then(comments => {
+          // DOM MANIPULATION
+          // attaching comments in the page....
+
+          div.innerHTML = comments[0]
+          console.log(comments)
+        })
+        .catch(err => handleErr(err))
+    </script>
+  </body>
+</html>

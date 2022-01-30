@@ -1,1 +1,39 @@
+* {
+  background-color: Black;
+  color: white;
+}
+#shopping-cart {
+  position: fixed;
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 50px;
+  max-height: 50px;
+  background-color: black;
+  border: 1px solid red;
+  z-index: 1;
+  transition: all 0.4s;
+}
 
+#shopping-cart > div {
+  opacity: 0;
+  transition: all 0.4s;
+  padding: 4em;
+  display: none;
+}
+#shopping-cart:hover > div {
+  opacity: 1;
+  display: block;
+}
+
+#shopping-cart:hover {
+  max-width: unset;
+  max-height: 70vh;
+  overflow-y: scroll;
+}
+
+.selected {
+  border: 3px solid red;
+}
