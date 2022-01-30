@@ -77,7 +77,6 @@ fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=eminem`)
         .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
     songs.map((song, i) => {
-      console.log(song.album)
       songsContainer.innerHTML += `
         <div class="row song mt-3">
           <div class="col-md-6 d-flex align-items-center">
@@ -100,5 +99,24 @@ fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=eminem`)
         </div>      
           `
     })
+    const rightSidebar = document.querySelector('.right-sidebar')
+    rightSidebar.innerHTML = `
+                    <div class="mr-3">
+                      <img style="height:100px"
+                      src="${songs[0].album.cover_small}" />
+                    </div>
+                    <div class=" d-flex flex-column justify-content-between">
+                      <div>
+                        <img style="height:27px;width:27px; object-fit: cover; border-radius: 50%;"
+                        src="${songs[0].artist.picture_small}"
+                        alt="Band Logo">
+                        <span class="ml-1 text-muted">Posted By </span>
+                      </div>
+                      <div class="d-flex flex-column">
+                        <b>${songs[0].album.title}</b>
+                        <span class="text-muted">Playlist</span>
+                      </div>
+                    </div>
+                    `
   })
   .catch(e => console.log(e))
