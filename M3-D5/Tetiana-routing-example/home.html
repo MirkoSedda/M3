@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="list"></ul>
+    <script>
+      fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=queen")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          const ul = document.querySelector("#list");
+
+          data.data.forEach((element) => {
+            const li = `<a href="./album.html?albumId=${element.album.id}"><li>${element.album.title}</li></a>`;
+            ul.innerHTML += li;
+          });
+        })
+        .catch((e) => console.log(e));
+    </script>
+  </body>
+</html>
