@@ -9,18 +9,19 @@
   <body>
     <ul id="list"></ul>
     <script>
-      fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=queen")
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          const ul = document.querySelector("#list");
+      fetch('https://striveschool-api.herokuapp.com/api/deezer/search?q=queen')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          const ul = document.querySelector('#list')
 
-          data.data.forEach((element) => {
-            const li = `<a href="./album.html?albumId=${element.album.id}"><li>${element.album.title}</li></a>`;
-            ul.innerHTML += li;
-          });
+          data.data.forEach(element => {
+            console.log(element.album.id)
+            const li = `<a href="./album.html?albumId=${element.album.id}"><li>${element.album.title}</li></a>`
+            ul.innerHTML += li
+          })
         })
-        .catch((e) => console.log(e));
+        .catch(e => console.log(e))
     </script>
   </body>
 </html>
