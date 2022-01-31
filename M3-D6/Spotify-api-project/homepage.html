@@ -369,8 +369,7 @@
         animation-name: fadeIn;
         animation-duration: 0.4s;
       }
-      .card-container:hover .playhover2 {
-      }
+
       .card-container:hover .playhover2 {
         transform: translateY(-10px);
         transition-duration: 0.4s;
@@ -472,11 +471,27 @@
                 >
               </div>
               <div class="d-flex mt-1">
-                <i class="bi bi-search m-bi-search mid-gray-text"></i>
-                <span
-                  class="ms-1 mid-gray-text m-text-small d-flex justify-content-center align-items-center"
-                  >Search</span
-                >
+                <div class="input-group mt-3">
+                  <input
+                    type="text"
+                    class="form-control mb-2"
+                    id="searchField"
+                    placeholder="Search"
+                    aria-label="Search"
+                    aria-describedby="basic-addon2"
+                    onkeyup="handleSearch(event)"
+                  />
+                  <div class="input-group-append" style="margin-bottom: 4%">
+                    <button
+                      class="btn btn-outline-secondary btn-sm"
+                      type="button"
+                      id="button-addon1"
+                      onclick="search()"
+                    >
+                      GO
+                    </button>
+                  </div>
+                </div>
               </div>
               <div class="d-flex align-items-center mt-1 mid-gray-text">
                 <svg
@@ -806,7 +821,9 @@
                   </div>
                 </div>
               </div>
-
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
               <div class="row mb-3">
                 <div
                   class="col-md d-flex pl-0 ml-3 card-top align-items-center"
@@ -1142,9 +1159,7 @@
                 </a>
               </div>
 
-              <div
-                class="eminem-container d-flex justify-content-between"
-              ></div>
+              <div class="song-container d-flex justify-content-between"></div>
 
               <div class="d-flex titles pt-4 justify-content-between">
                 <div class="d-flex flex-column">
@@ -1327,34 +1342,65 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      window.onload = () => {
-        fetch(
-          'https://striveschool-api.herokuapp.com/api/deezer/search?q=eminem'
-        )
-          .then(res => res.json())
-          .then(({ data }) => {
+      let query = 'madonna'
+      const handleSearch = event => {
+        query = event.target.value
+        if (event.key === 'Enter' && query.length >= 3) {
+          search()
+        }
+      }
+
+      // const handleBtnClick = (event) => {
+      //   const inputValue = document.querySelector("#searchField").value
+
+      //   if (inputValue.length >= 3) {
+      //     console.log("Searched")
+      //     search(inputValue)
+      //   }
+      // }
+
+      const isLoading = bool => {
+        const spinner = document.querySelector('.spinner-border')
+        bool
+          ? spinner.classList.remove('d-none')
+          : spinner.classList.add('d-none')
+      }
+
+      const search = (q = query) => {
+        isLoading(true)
+
+        fetch('https://striveschool-api.herokuapp.com/api/deezer/search?q=' + q)
+          .then(response => response.json())
+          .then(data => {
             const songs = data
-            const eminemContainer = document.querySelector('.eminem-container')
+            console.log(songs)
+            const songContainer = document.querySelector('.song-container')
 
             songs.map(song => {
-              console.log(song.album.id)
-              eminemContainer.innerHTML += `
-          <a href="./album.html?albumId=${song.album.id}">
-          <div class="card-container position-relative d-flex justify-content-center">
-          <img src="${song.album.cover}" class="playhover2" alt="" />
-          <div>
-          <img class="mt-3 img-card" src="${song.album.cover}" alt="Card image cap" />
-          <div class="d-flex flex-column align-items-start p-0 mt-3 ml-1 justify-content-start">
-          <div class="card-title line-clamp2">${song.title_short}</div>
-          <p class="card-text mt-n2 line-clamp">${song.artist.name}</p>
-          </div>
-          </div>
-          </div>
-          </a>
-          `
+              songContainer.innerHTML += `
+                  <a href="./album.html?albumId=${song.album.id}">
+                    <div class="card-container position-relative d-flex justify-content-center">
+                      <img src="${song.album.cover}" class="playhover2" alt="" />
+                      <div>
+                <img class="mt-3 img-card" src="${song.album.cover}" alt="Card image cap" />
+                <div class="d-flex flex-column align-items-start p-0 mt-3 ml-1 justify-content-start">
+                <div class="card-title line-clamp2">${song.title_short}</div>
+                <p class="card-text mt-n2 line-clamp">${song.artist.name}</p>
+                </div>
+                </div>
+                </div>
+                </a>
+                `
             })
           })
-          .catch(e => console.log(e))
+          .catch(err => {
+            // const h2 = document.querySelector('#results > h2')
+            // h2.classList.add('text-danger')
+            // h2.innerText = err.message
+            // row.innerHTML = ''
+            // console.warn(err)
+          })
+          .finally(() => isLoading(false))
       }
     </script>
   </body>
