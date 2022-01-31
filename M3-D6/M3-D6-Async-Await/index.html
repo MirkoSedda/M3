@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="emails me-5"></div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // fetch("https://jsonplaceholder.typicode.com/users")
+      //   .then((response) => response.json())
+      //   .then((data) => {
+
+      //     data.map((element) => {
+      //       const listItem = document.createElement("li")
+      //         listItem.innerText = element.email
+      //         mainDiv.appendChild(listItem)
+      //     });
+      //   });
+
+      const div = document.querySelector('div')
+
+      const createEmails = data => {
+        console.log(data)
+        data.map(x => {
+          div.innerHTML += `<h6>${x.email}</h6>`
+        })
+      }
+
+      const getEmails = async () => {
+        try {
+          const response = await fetch(
+            'https://jsonplaceholder.typicode.com/users'
+          )
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+          }
+          const test2 = await response.json()
+          createEmails(test2)
+          return test2
+        } catch (e) {
+          console.log(e)
+        }
+      }
+      console.log(getEmails())
+    </script>
+  </body>
+</html>
