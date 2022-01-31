@@ -1,5 +1,6 @@
 * {
   font-family: 'Heebo', sans-serif;
+  background-color: black !important;
   color: white;
   margin: 0;
   padding: 0;
@@ -46,24 +47,25 @@ h1 {
   color: white;
 }
 .bg-custom {
-  background: rgb(12, 12, 13);
+  z-index: 1000;
+  background: rgb(12, 12, 13) !important;
   background: -moz-linear-gradient(
     0deg,
     rgba(12, 12, 13, 0.9724264705882353) 75%,
     rgba(45, 43, 45, 0.7651435574229692) 100%
-  );
+  ) !important;
   background: -webkit-linear-gradient(
     0deg,
     rgba(12, 12, 13, 0.9724264705882353) 75%,
     rgba(45, 43, 45, 0.7651435574229692) 100%
-  );
+  ) !important;
   background: linear-gradient(
     0deg,
     rgba(12, 12, 13, 0.9724264705882353) 75%,
     rgba(45, 43, 45, 0.7651435574229692) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0c0c0d",endColorstr="#2d2b2d",GradientType=1);
-  height: 50vh;
+  ) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0c0c0d",endColorstr="#2d2b2d",GradientType=1) !important;
+  height: 50vh !important;
 }
 
 .song {
@@ -162,32 +164,39 @@ h1 {
 
 /* mirko sidebar code */
 
-.m-sidebar-height {
+.m-sidebar {
   height: 100vh;
   background-color: black !important;
   position: sticky;
   top: 0;
 }
+
 .light-gray-text {
   color: lightgray;
 }
+
 .dark-gray-text {
   color: white;
   opacity: 0.5;
 }
+
 .mid-gray-text {
   color: white;
   opacity: 0.7;
 }
+
 .m-text-smaller {
   font-size: 0.8rem;
 }
+
 .text-1-three-rem {
   font-size: 1.3rem;
 }
+
 .m-bi-spotify {
   font-size: 2rem;
 }
+
 .m-text-small,
 .m-bi-house-fill,
 .m-bi-search,
@@ -197,27 +206,33 @@ h1 {
 .m-bi-arrow-down-circle {
   font-size: 1rem;
 }
+
 .m-truncate {
   width: 140px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 /* music player classes */
+
 .m-music-player-section-height {
   height: 10vh;
-  background-color: black;
+  background-color: black !important;
   position: fixed;
   bottom: 0;
 }
+
 .m-bi-heart,
 .m-bi-tv,
 .m-bi-shuffle {
   font-size: 1rem;
 }
+
 .m-bi-play-circle-fill {
   font-size: 2rem;
 }
+
 .m-music-player1 {
   height: 10px;
   width: 100px;
@@ -225,6 +240,7 @@ h1 {
   border-bottom-left-radius: 50px;
   background-color: lightgray;
 }
+
 .m-music-player2 {
   height: 10px;
   width: 200px;
@@ -232,10 +248,10 @@ h1 {
   border-bottom-right-radius: 50px;
   background-color: grey;
 }
+
 .m-music-player3 {
   height: 10px;
   width: 100px;
   border-radius: 50px;
   background-color: lightgray;
 }
-/* ----- */

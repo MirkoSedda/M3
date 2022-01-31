@@ -37,6 +37,265 @@
       href="https://toppng.com/uploads/preview/spotify-icon-spotify-logo-black-and-white-11563065230ukmcxtnjge.png"
       type="image/icon type"
     />
+    <style>
+      * {
+        font-family: 'Heebo', sans-serif;
+        background-color: black !important;
+        color: white;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-weight: 700;
+        font-size: 3.7rem;
+      }
+
+      .artist-name-container {
+        background-image: url('assets/Queen__Adam_Lambert_-_Live_Around_the_World.jpg');
+        background-size: cover;
+        background-position: top;
+        background-repeat: no-repeat;
+        object-fit: cover;
+        height: 46.4%;
+      }
+      .artist-name {
+        bottom: 0;
+        left: 20px;
+      }
+      .bi-patch-check-fill {
+        color: blue;
+      }
+      .followButton {
+        border: white;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 4px;
+        display: inline-block;
+        cursor: pointer;
+      }
+      .bi-three-dots {
+        font-size: 1.5rem;
+      }
+      .bi-pause-circle-fill {
+        font-size: 3rem;
+        color: rgb(5, 185, 5);
+      }
+      .bi-pause-circle-fill:hover {
+        color: rgb(13, 218, 13);
+      }
+      .bi-three-dots {
+        color: white;
+      }
+      .bg-custom {
+        z-index: 1000;
+        background: rgb(12, 12, 13) !important;
+        background: -moz-linear-gradient(
+          0deg,
+          rgba(12, 12, 13, 0.9724264705882353) 75%,
+          rgba(45, 43, 45, 0.7651435574229692) 100%
+        ) !important;
+        background: -webkit-linear-gradient(
+          0deg,
+          rgba(12, 12, 13, 0.9724264705882353) 75%,
+          rgba(45, 43, 45, 0.7651435574229692) 100%
+        ) !important;
+        background: linear-gradient(
+          0deg,
+          rgba(12, 12, 13, 0.9724264705882353) 75%,
+          rgba(45, 43, 45, 0.7651435574229692) 100%
+        ) !important;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0c0c0d",endColorstr="#2d2b2d",GradientType=1) !important;
+        height: 50vh !important;
+      }
+
+      .song {
+        padding-left: 16px;
+      }
+      .song img {
+        width: 35px;
+      }
+
+      .artist-pick {
+        margin-left: 75px !important;
+      }
+
+      .artistPickPhoto {
+        width: 75px;
+      }
+
+      /* mouseover-songs */
+
+      .highLighting {
+        background: rgba(100, 98, 98, 0.692);
+        border-radius: 5px;
+        padding-left: 16px;
+      }
+      .listPlay {
+        width: 0;
+        height: 0;
+        border-top: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+        border-left: 9px solid white;
+      }
+      .listNumber {
+        height: 20px;
+        width: 20px;
+      }
+      .bi-heart:hover {
+        color: green !important;
+        opacity: 1;
+      }
+      .bi-three-dots {
+        font-size: 2rem;
+      }
+      .bi-three-dots:hover {
+        color: white !important;
+      }
+      .hidden {
+        opacity: 0;
+      }
+      .bandLogo {
+        width: 30px;
+      }
+
+      /* -------- */
+
+      /* navbar */
+      .navbar {
+        background-color: black !important;
+        z-index: 1;
+        padding-left: 15px;
+        margin-right: 3px;
+        position: fixed;
+        top: 0;
+      }
+      .top-title {
+        margin-top: 26px;
+        font-weight: 700;
+        line-height: 48px;
+        font-size: 32px;
+        margin-bottom: 26px;
+      }
+      .chevron {
+        width: 32px;
+        height: 32px;
+        color: #ddd3d2;
+        padding: 5px;
+        font-size: 1rem;
+        border-radius: 50%;
+        background-color: rgba(48, 45, 45, 0.3);
+      }
+      #dropdownMenuLink {
+        background-color: rgba(0, 0, 0, 0.575);
+        max-height: 36px;
+        font-size: 12px;
+        border-radius: 50px;
+        color: white;
+      }
+      #profilePic {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+      }
+      .profile {
+        font-size: 13px;
+      }
+      /* ------ */
+
+      /* mirko sidebar code */
+
+      .m-sidebar {
+        height: 100vh;
+        background-color: black !important;
+        position: sticky;
+        top: 0;
+      }
+
+      .light-gray-text {
+        color: lightgray;
+      }
+
+      .dark-gray-text {
+        color: white;
+        opacity: 0.5;
+      }
+
+      .mid-gray-text {
+        color: white;
+        opacity: 0.7;
+      }
+
+      .m-text-smaller {
+        font-size: 0.8rem;
+      }
+
+      .text-1-three-rem {
+        font-size: 1.3rem;
+      }
+
+      .m-bi-spotify {
+        font-size: 2rem;
+      }
+
+      .m-text-small,
+      .m-bi-house-fill,
+      .m-bi-search,
+      .m-bi-search,
+      .m-bi-plus-square,
+      .m-bi-people-fill,
+      .m-bi-arrow-down-circle {
+        font-size: 1rem;
+      }
+
+      .m-truncate {
+        width: 140px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* music player classes */
+
+      .m-music-player-section-height {
+        height: 10vh;
+        background-color: black !important;
+        position: fixed;
+        bottom: 0;
+      }
+
+      .m-bi-heart,
+      .m-bi-tv,
+      .m-bi-shuffle {
+        font-size: 1rem;
+      }
+
+      .m-bi-play-circle-fill {
+        font-size: 2rem;
+      }
+
+      .m-music-player1 {
+        height: 10px;
+        width: 100px;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        background-color: lightgray;
+      }
+
+      .m-music-player2 {
+        height: 10px;
+        width: 200px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        background-color: grey;
+      }
+
+      .m-music-player3 {
+        height: 10px;
+        width: 100px;
+        border-radius: 50px;
+        background-color: lightgray;
+      }
+    </style>
   </head>
 
   <body>
@@ -534,6 +793,129 @@
       integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
       crossorigin="anonymous"
     ></script>
-    <script src="./artist.js"></script>
+    <script>
+      const mouseoverSong = function () {
+        songNode = document.getElementsByClassName('song')
+        numNode = document.getElementsByClassName('listNumber')
+        heartNode = document.getElementsByClassName('heartSong')
+        threeDotsNode = document.getElementsByClassName('threeDotsSong')
+        for (let i = 0; i < songNode.length; i++) {
+          songNode[i].addEventListener('mouseover', function (e) {
+            songNode[i].classList.add('highLighting')
+            numNode[i].innerText = ' '
+            numNode[i].classList.add('listPlay')
+            heartNode[i].classList.remove('hidden')
+            threeDotsNode[i].classList.remove('hidden')
+          })
+          songNode[i].addEventListener('mouseleave', function (e) {
+            songNode[i].classList.toggle('highLighting')
+            numNode[i].innerText = i + 1
+            numNode[i].classList.toggle('listPlay')
+            heartNode[i].classList.add('hidden')
+            threeDotsNode[i].classList.add('hidden')
+          })
+        }
+      }
+      mouseoverSong()
+
+      const id = new URLSearchParams(window.location.search).get('artistId')
+      fetch('https://striveschool-api.herokuapp.com/api/deezer/artist/' + id)
+        .then(response => response.json())
+        .then(
+          (_artistData = artistData => {
+            console.log(artistData)
+
+            const artistNameContainer = document.querySelector(
+              '.artist-name-container'
+            )
+            artistNameContainer.style.backgroundImage = `url(${artistData.picture_big})`
+
+            const numberWithCommas = x =>
+              x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
+            artistNameContainer.innerHTML = `
+      <div class="position-absolute artist-name">
+      <p class="mb-0">
+      <i class="bi bi-patch-check-fill pr-2"></i>Verified Artist
+      </p>
+      <h1>${artistData.name}</h1>
+      <p>${numberWithCommas(artistData.nb_fan)} monthly listeners</p>
+      </div>
+      
+      `
+          })
+        )
+
+      fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=eminem`)
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          const songsContainer = document.querySelector('.songsContainer')
+          const songs = data.data
+          function time(duration) {
+            // Hours, minutes and seconds
+            var hrs = ~~(duration / 3600)
+            var mins = ~~((duration % 3600) / 60)
+            var secs = ~~duration % 60
+            // Output like "1:01" or "4:03:59" or "123:03:59"
+            var ret = ''
+            if (hrs > 0) {
+              ret += '' + hrs + ':' + (mins < 10 ? '0' : '')
+            }
+            ret += '' + mins + ':' + (secs < 10 ? '0' : '')
+            ret += '' + secs
+            return ret
+          }
+
+          const numberWithCommas = () =>
+            Math.floor(Math.random() * 10000000)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
+          songs.map((song, i) => {
+            songsContainer.innerHTML += `
+        <div class="row song mt-3">
+          <div class="col-md-6 d-flex align-items-center">
+            <span class="listNumber text-muted">${i + 1}</span>
+            <img src="${song.album.cover_small}" alt="" class="ml-2" />
+            <p class="pl-3 m-0 text-white">
+              ${song.album.title} <br />
+            </p>
+          </div>
+          <div class="col-md-3 d-flex justify-content-center align-items-center">
+            <div>
+              <span class="text-muted text-right">${numberWithCommas()}</span>
+            </div>
+          </div>
+          <div class="col-md-3 d-flex align-items-center">
+            <i class="bi bi-heart hidden heartSong pr-1"></i>
+            <span class="text-muted time px-3">${time(song.duration)}</span>
+            <i class="bi bi-three-dots hidden threeDotsSong text-muted"></i>
+          </div>
+        </div>      
+          `
+          })
+          const rightSidebar = document.querySelector('.right-sidebar')
+          rightSidebar.innerHTML = `
+                    <div class="mr-3">
+                      <img style="height:100px"
+                      src="${songs[0].album.cover_small}" />
+                    </div>
+                    <div class=" d-flex flex-column justify-content-between">
+                      <div>
+                        <img style="height:27px;width:27px; object-fit: cover; border-radius: 50%;"
+                        src="${songs[0].artist.picture_small}"
+                        alt="Band Logo">
+                        <span class="ml-1 text-muted">Posted By </span>
+                      </div>
+                      <div class="d-flex flex-column">
+                        <b>${songs[0].album.title}</b>
+                        <span class="text-muted">Playlist</span>
+                      </div>
+                    </div>
+                    `
+        })
+        .catch(e => console.log(e))
+    </script>
   </body>
 </html>

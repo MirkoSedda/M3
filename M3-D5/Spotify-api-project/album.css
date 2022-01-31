@@ -54,7 +54,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#181819",endColorstr="#750b73",GradientType=1);
   color: white;
 
-  font-family: "Heebo", sans-serif; /* choose one */
+  font-family: 'Heebo', sans-serif;
 }
 .albumWord {
   margin-bottom: 0;
@@ -111,7 +111,6 @@
 }
 .bi-play-circle-fill {
   color: rgb(5, 185, 5);
-  /* z-index: 4; */
 }
 
 .titleUnderline {
@@ -193,7 +192,7 @@
 
 .m-music-player-section-height {
   height: 10vh;
-  background-color: #181818 !important;
+  background-color: black !important;
   position: fixed;
   bottom: 0;
 }
