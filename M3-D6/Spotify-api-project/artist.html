@@ -848,10 +848,10 @@
 
       fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=eminem`)
         .then(res => res.json())
-        .then(data => {
+        .then(({ data }) => {
           console.log(data)
           const songsContainer = document.querySelector('.songsContainer')
-          const songs = data.data
+          const songs = data
           function time(duration) {
             // Hours, minutes and seconds
             var hrs = ~~(duration / 3600)

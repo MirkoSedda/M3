@@ -1329,12 +1329,11 @@
     <script>
       window.onload = () => {
         fetch(
-          'https://striveschool-api.herokuapp.com/api/deezer/search?q=eminem',
-          {}
+          'https://striveschool-api.herokuapp.com/api/deezer/search?q=eminem'
         )
           .then(res => res.json())
-          .then(data => {
-            const songs = data.data
+          .then(({ data }) => {
+            const songs = data
             const eminemContainer = document.querySelector('.eminem-container')
 
             songs.map(song => {
