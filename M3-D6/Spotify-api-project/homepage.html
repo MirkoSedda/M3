@@ -1396,7 +1396,7 @@
           .catch(err => {
             const topTitle = document.querySelector('.top-title')
             topTitle.innerHTML = ` <div class="top-title text-danger">Failed to fetch data : ${err.message}</div>`
-            row.innerHTML = ''
+            // row.innerHTML = ''
             console.warn(err)
           })
           .finally(() => isLoading(false))
