@@ -76,7 +76,7 @@
     </table>
 
     <div class="names"></div>
-    <button class="btn btn-primary"></button>
+    <button class="btn btn-primary btn-names">Show names</button>
     <div class="address"></div>
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script
@@ -102,7 +102,7 @@
           let data = await response.json()
           //console.log(data)
           createTableRow(data)
-          getNames(data)
+          showNames(data)
           getAddresses(data)
           return data
         } catch {
@@ -110,19 +110,22 @@
         }
       }
 
+      const btnNames = document.querySelector('.btn-names')
       const names = document.querySelector('.names')
-
-      const getNames = data => {
-        //console.log(data)
-        data.map(x => {
-          names.innerHTML += `<h6>${x.name}</h6>`
+      const showNames = data => {
+        console.log(data)
+        btnNames.addEventListener('click', event => {
+          console.log(data)
+          data.map(x => {
+            names.innerHTML += `<h6>${x.name}</h6>`
+          })
         })
       }
 
       const addresses = document.querySelector('.address')
 
       const getAddresses = data => {
-        console.log(data)
+        //console.log(data)
         data.map(x => {
           addresses.innerHTML += `<h6>${x.address.street} , ${x.address.suite}, ${x.address.city}, ${x.address.zipcode} ,${x.address.geo.lat}, ${x.address.geo.lng} </h6>`
         })
@@ -133,12 +136,12 @@
         data.forEach(user => {
           const newRow = document.createElement('tr')
           newRow.innerHTML += `
-                <th scope="row">${user.id}</th>
-                <td>${user.name}</td>
-                <td>${user.username}</td>
-                <td>${user.email}</td>
-        
-        `
+                        <th scope="row">${user.id}</th>
+                        <td>${user.name}</td>
+                        <td>${user.username}</td>
+                        <td>${user.email}</td>
+
+                `
           table.appendChild(newRow)
         })
       }
