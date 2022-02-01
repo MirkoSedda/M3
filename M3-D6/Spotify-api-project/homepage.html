@@ -1371,11 +1371,11 @@
 
         fetch('https://striveschool-api.herokuapp.com/api/deezer/search?q=' + q)
           .then(response => response.json())
-          .then(data => {
+          .then(({ data }) => {
             const songs = data
             console.log(songs)
             const songContainer = document.querySelector('.song-container')
-
+            songContainer.innerHTML = ''
             songs.map(song => {
               songContainer.innerHTML += `
                   <a href="./album.html?albumId=${song.album.id}">
@@ -1398,7 +1398,7 @@
             // h2.classList.add('text-danger')
             // h2.innerText = err.message
             // row.innerHTML = ''
-            // console.warn(err)
+            console.warn(err)
           })
           .finally(() => isLoading(false))
       }
