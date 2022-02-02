@@ -1,0 +1,10 @@
+* {
+  background-color: black !important;
+  color: #01ff84 !important;
+}
+
+.container,
+.form-label,
+.form-control {
+  min-width: 600px;
+}
