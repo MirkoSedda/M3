@@ -15,69 +15,71 @@
       integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
       crossorigin="anonymous"
     />
-
+    <style>
+      .container {
+        min-width: 1200px;
+      }
+    </style>
     <title>Hello, world!</title>
   </head>
 
   <body>
-    <h1>Hello, world!</h1>
     <!--dropdown-->
-    <div class="dropdown">
-      <button
-        class="btn btn-secondary dropdown-toggle"
-        type="button"
-        id="dropdownMenuButton"
-        data-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Choose One
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" id="name" onclick="dropName(event)" href="#"
-          >Name</a
+    <div class="container">
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-expanded="false"
         >
-        <a
-          class="dropdown-item"
-          id="username"
-          href="#"
-          onclick="dropName(event)"
-          >Username</a
-        >
-        <a class="dropdown-item" id="email" href="#" onclick="dropName(event)"
-          >Email</a
-        >
+          Choose One
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" id="name" onclick="dropName(event)" href="#"
+            >Name</a
+          >
+          <a
+            class="dropdown-item"
+            id="username"
+            href="#"
+            onclick="dropName(event)"
+            >Username</a
+          >
+          <a class="dropdown-item" id="email" href="#" onclick="dropName(event)"
+            >Email</a
+          >
+        </div>
       </div>
-    </div>
-    <!--input text-->
-    <div class="input-group input-group-lg">
-      <input
-        type="text"
-        class="form-control"
-        id="inputSearch"
-        aria-label="Sizing example input"
-        aria-describedby="inputGroup-sizing-lg"
-        onkeyup="handleSearch(event)"
-      />
-      <button type="button" class="btn btn-secondary" onclick="search(event)">
-        Search
-      </button>
-    </div>
-    <!--table-->
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Username</th>
-          <th scope="col">email</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+      <!--input text-->
+      <div class="input-group input-group-lg">
+        <input
+          type="text"
+          class="form-control"
+          id="inputSearch"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-lg"
+          onkeyup="handleSearch(event)"
+        />
+      </div>
+      <!--table-->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">email</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
 
-    <div class="names"></div>
-    <button class="btn btn-primary btn-names">Show names</button>
-    <div class="address"></div>
+      <div class="names"></div>
+      <button class="btn btn-primary btn-names">Show names</button>
+      <div class="address"></div>
+    </div>
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
@@ -90,6 +92,15 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      const dropdownName = document.querySelector('#name')
+      const dropdownUsername = document.querySelector('#username')
+      const dropdownEmail = document.querySelector('#email')
+      const btnNames = document.querySelector('.btn-names')
+      const names = document.querySelector('.names')
+      const addresses = document.querySelector('.address')
+
+      const globalData = []
+      console.log(globalData)
       const fetchUsers = async dropValue => {
         try {
           const response = await fetch(
@@ -101,6 +112,7 @@
 
           let data = await response.json()
           //console.log(data)
+          globalData.push(data)
           createTableRow(data)
           showNames(data)
           getAddresses(data)
@@ -110,51 +122,8 @@
         }
       }
 
-      const btnNames = document.querySelector('.btn-names')
-      const names = document.querySelector('.names')
-      const showNames = data => {
-        console.log(data)
-        btnNames.addEventListener('click', event => {
-          console.log(data)
-          data.map(x => {
-            names.innerHTML += `<h6>${x.name}</h6>`
-          })
-        })
-      }
-
-      const addresses = document.querySelector('.address')
-
-      const getAddresses = data => {
-        //console.log(data)
-        data.map(x => {
-          addresses.innerHTML += `<h6>${x.address.street} , ${x.address.suite}, ${x.address.city}, ${x.address.zipcode} ,${x.address.geo.lat}, ${x.address.geo.lng} </h6>`
-        })
-      }
-
-      const table = document.querySelector('.table')
-      const createTableRow = data => {
-        data.forEach(user => {
-          const newRow = document.createElement('tr')
-          newRow.innerHTML += `
-                        <th scope="row">${user.id}</th>
-                        <td>${user.name}</td>
-                        <td>${user.username}</td>
-                        <td>${user.email}</td>
-
-                `
-          table.appendChild(newRow)
-        })
-      }
-
-      fetchUsers()
-
-      const dropdownName = document.querySelector('#name')
-      const dropdownUsername = document.querySelector('#username')
-      const dropdownEmail = document.querySelector('#email')
-
       const search = query => {
-        const input = document.querySelector('#inputSearch')
-        console.log(input.value)
+        console.log(query)
       }
 
       const handleSearch = event => {
@@ -165,14 +134,47 @@
         }
       }
 
-      const dropdown = document.querySelector('#dropdown')
-      let dropValue = ''
-      console.log(dropValue)
       const dropName = event => {
         dropValue = event.target.innerText.toLowerCase()
-
-        console.log(dropValue)
+        const dropdownMenuButton = document.querySelector('#dropdownMenuButton')
+        
+        dropdownMenuButton.innerText = dropValue
+        //console.log(dropValue)
       }
+
+      const table = document.querySelector('.table')
+      const createTableRow = data => {
+        console.log(dropValue)
+        data.forEach(user => {
+          const newRow = document.createElement('tr')
+          newRow.innerHTML += `
+          <th scope="row">${user.id}</th>
+          <td>${user.name}</td>
+          <td>${user.username}</td>
+          <td>${user.email}</td>
+          `
+          table.appendChild(newRow)
+        })
+      }
+
+      const showNames = data => {
+        console.log(data)
+        btnNames.addEventListener('click', event => {
+          console.log(data)
+          data.map(x => {
+            names.innerHTML += `<h6>${x.name}</h6>`
+          })
+        })
+      }
+
+      const getAddresses = data => {
+        //console.log(data)
+        data.map(x => {
+          addresses.innerHTML += `<h6>${x.address.street} , ${x.address.suite}, ${x.address.city}, ${x.address.zipcode} ,${x.address.geo.lat}, ${x.address.geo.lng} </h6>`
+        })
+      }
+
+      fetchUsers()
     </script>
   </body>
 </html>
