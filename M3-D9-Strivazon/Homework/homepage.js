@@ -25,26 +25,25 @@ const generateCard = data => {
   data.map(x => {
     app.innerHTML += `
     <div class="container card d-flex justify-content-center align-items-center m-3">
-    <div class="d-flex flex-row justify-content-between p-3" id = ${x._id}>
-    <div class="p-0">
-    <li class="list-group-item"><b>Name: </b> ${x.name}</li>
-    <li class="list-group-item">
-    <b>Description: </b> ${x.description}
-    </li>
-    <li class="list-group-item"><b>Image: </b> ${x.imageUrl}</li>
-    <li class="list-group-item"><b>Brand: </b> ${x.brand}</li>
-    <li class="list-group-item"><b>Price: </b> ${x.price}</li>
-    </div>
-    <div class=" d-flex justify-content-center align-items-center p-0">
-    <i class="bi bi-pencil-fill m-2"></i>
-    <i class="bi bi-trash3-fill m-2" onclick="deleteCards(event)"></i>
-    </div>
-    </div>
+      <div class="d-flex flex-row justify-content-between p-3" id="${x._id}">
+        <div class="p-0">
+          <li class="list-group-item"><b>Name: </b> ${x.name}</li>
+          <li class="list-group-item"><b>Description: </b> ${x.description}</li>
+          <li class="list-group-item"><b>Image: </b> ${x.imageUrl}</li>
+          <li class="list-group-item"><b>Brand: </b> ${x.brand}</li>
+          <li class="list-group-item"><b>Price: </b> ${x.price}</li>
+        </div>
+        <div class="d-flex justify-content-center align-items-center p-0">
+          <a href="./backoffice.html?Id=${x._id}">
+            <i class="bi bi-pencil-fill m-2"></i>
+          </a>
+          <i class="bi bi-trash3-fill m-2" onclick="deleteCards(event)"></i>
+        </div>
+      </div>
     </div>
     `
   })
 
-  const pencil = document.querySelector('.bi-pencil-fill')
   const bins = document.querySelectorAll('.bi-trash3-fill')
 
   deleteCards = event => {

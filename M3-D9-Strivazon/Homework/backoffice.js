@@ -27,5 +27,5 @@ const handleSubmit = event => {
   })
     .then(response => response.json())
     .catch(err => console.error(err))
-  setTimeout(() => window.location.replace('/Homework/homepage.html'), 1000)
+    .finally(() => window.location.href('/'))
 }
