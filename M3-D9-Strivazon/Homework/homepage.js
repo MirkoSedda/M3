@@ -21,6 +21,7 @@ const getData = async () => {
 
 const generateCard = data => {
   const app = document.querySelector('.app')
+  app.innerHTML = ''
   data.map(x => {
     app.innerHTML += `
     <div class="container card d-flex justify-content-center align-items-center m-3">
