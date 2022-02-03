@@ -6,11 +6,3 @@
 .container {
   min-width: 600px;
 }
-
-.card {
-  background-color: transparent !important;
-  border-color: #01ff84;
-  border-radius: 1rem;
-  border-width: 2px;
-  width: 300px;
-}
